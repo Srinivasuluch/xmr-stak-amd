@@ -284,7 +284,7 @@ void keccakf1600_2(ulong *st)
         //tmp1 = st[15]; tmp2 = st[16]; st[15] = bitselect(st[15] ^ st[17], st[15], st[16]); st[16] = bitselect(st[16] ^ st[18], st[16], st[17]); st[17] = bitselect(st[17] ^ st[19], st[17], st[18]); st[18] = bitselect(st[18] ^ tmp1, st[18], st[19]); st[19] = bitselect(st[19] ^ tmp2, st[19], tmp1);
         //tmp1 = st[20]; tmp2 = st[21]; st[20] = bitselect(st[20] ^ st[22], st[20], st[21]); st[21] = bitselect(st[21] ^ st[23], st[21], st[22]); st[22] = bitselect(st[22] ^ st[24], st[22], st[23]); st[23] = bitselect(st[23] ^ tmp1, st[23], st[24]); st[24] = bitselect(st[24] ^ tmp2, st[24], tmp1);
         
-        #pragma unroll
+        #pragma unroll 1
         for(int i = 0; i < 25; i += 5)
         {
 			ulong tmp1 = st[i], tmp2 = st[i + 1];
